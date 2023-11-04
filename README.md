@@ -1,16 +1,51 @@
-# hsr_inventory
+# HSR Game Inventory - Mobile
+- [Tugas 7](#tugas-7)
 
-A new Flutter project.
 
-## Getting Started
+## Tugas 7
 
-This project is a starting point for a Flutter application.
+> Apa perbedaan utama antara *stateless* dan *stateful widget* dalam konteks pengembangan aplikasi Flutter?
 
-A few resources to get you started if this is your first Flutter project:
+Perbedaan utama antara *stateless* dan *stateful widget* di Flutter adalah tentang bagaimana *widget* tersebut bereaksi ketika terdapat suatu *event*. Pada *stateless widget*, jika terjadi suatu *event*, biasanya tampilan *widget* tersebut sendiri tidak berubah namun bisa saja *widget* tersebut menyebabkan perubahan di bagian lain seperti berpindah halaman ketika menekan suatu tombol. Di lain sisi, pada *stateful widget*, ketika terjadi suatu *event*, biasanya tampilan dari *widget* itu sendiri berubah, namun perubahan tersebut tidak mempengaruhi *widget* lain.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
+> Sebutkan seluruh *widget* yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Widget Flutter
+    - MaterialApp
+        
+        Merupakan *widget* dasar yang menjadi tumpuan untuk *widget-widget* lain.
+
+    - Scaffold
+
+        Merupakan *widget* dasar yang berguna sebagai "alas" bagi *widget-widget* lain.
+
+    - AppBar
+    - SingleChildScrollView
+    - Padding
+    - Column
+    - Text
+    - GridView
+    - Material
+    - InkWell
+    - ScaffoldMessenger
+    - SnackBar
+    - Container
+    - Center
+    - Icon
+
+- Widget Buatan
+    - MyApp
+
+        Berguna sebagai perantara untuk *widget* MaterialApp.
+
+    - HomePage
+
+        Berguna untuk menampilkan halaman utama dari aplikasi.
+
+    - MenuCard
+
+        Berguna untuk menampilkan tombol-tombol pada menu HomePage.
+
+---
+> Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step* (bukan hanya sekadar mengikuti tutorial)
