@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  HomePage({Key? key}) : super(key: key);
 
   final List<MenuItem> menus = [
     MenuItem("See Items", Icons.inventory),
@@ -13,7 +13,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("HSR Inventory")),
+        appBar: AppBar(
+          title: const Text("HSR Inventory"),
+          backgroundColor: Colors.amber,
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),
