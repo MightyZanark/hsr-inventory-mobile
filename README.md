@@ -127,4 +127,4 @@ Perbedaan utama antara *stateless* dan *stateful widget* di Flutter adalah tenta
 
 4. Pada *class* `MenuCard` yang merupakan ekuivalen dari `ShopCard`, saya menambahkan atribut `color` yang merupakan sebuah warna *random* dari semua pilihan warna yang ada tersedia di *class* `Colors`.
 
-5. Saya juga membuat *file* bernama `item.dart` yang kurang lebih saya ambil dari (sini)[https://github.com/MightyZanark/OprecRistek/blob/f640536662cdb751ed3d1303a5daa8b60ffe4295/lib/api_fetch.dart] dengan memodifikasi untuk kebutuhan aplikasi ini.
+5. Saya juga membuat *file* bernama `item.dart` yang kurang lebih saya ambil dari [sini](https://github.com/MightyZanark/OprecRistek/blob/f640536662cdb751ed3d1303a5daa8b60ffe4295/lib/api_fetch.dart) dengan memodifikasi untuk kebutuhan aplikasi ini.
