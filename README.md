@@ -138,16 +138,53 @@ Perbedaan utama antara *stateless* dan *stateful widget* di Flutter adalah tenta
 
 Contoh penggunaan `Navigator.push()` yang tepat adalah ketika halaman yang ingin ditampilkan bersifat sementara seperti halaman untuk melihat detil suatu barang ketika gambar dari barang tersebut ditekan.
 
-Contoh penggunaan `Navigator.pushReplacement()` yang tepat adalah ketika halaman yang ingin ditampilkan 
+Contoh penggunaan `Navigator.pushReplacement()` yang tepat adalah ketika halaman sebelumnya tidak perlu ditampilkan lagi seperti ketika seorang pengguna berhasil *login*.
 
 ---
 > Jelaskan masing-masing *layout widget* pada Flutter dan konteks penggunaannya masing-masing!
+- ListView
+    
+    Merupakan *layout widget* yang akan menampilkan anak-anaknya dalam arah *scroll* dan biasa digunakan untuk menampilkan suatu *list of items* yang dapat berupa halaman-halaman yang dapat diakses atau barang-barang yang dijual di sebuah toko.
+
+- Align
+
+    Merupakan *layout widget* yang berguna untuk meletakkan anaknya pada bagian tertentu di dalamnya seperti di bagian kanan atas atau bagian kiri bawah. *Widget* ini biasa digunakan ketika kita ingin mengatur peletakkan suatu *widget* secara spesifik pada suatu bagian.
+
+- Center
+
+    Merupakan *layout widget* yang mirip seperti Align, namun hanya mampu untuk meletakkan anaknya tepat di tengah dari dirinya sendiri. *Widget* ini biasa digunakan ketika kita tau bahwa kita hanya ingin meletakkan suatu *widget* tertentu tepat di bagian tengah.
+
+- Padding
+
+    Merupakan *layout widget* untuk menambahkan area kosong di sekitar anaknya. *Widget* ini biasa digunakan ketika kita ingin memberikan jarak antara 2 atau lebih *widget* agar tidak terlihat terlalu berdekatan. 
+
+- Column
+
+    Merupakan *layout widget* yang akan menampilkan anak-anaknya secara dalam sebuah *array* vertikal dan anak-anaknya akan memenuhi area horizontal sesuai dengan kebutuhan masing-masing. *Widget* ini biasa digunakan ketika kita ingin menampilkan sebuah *list of items* dari atas ke bawah atau sebaliknya.
 
 ---
 > Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
 
+- TextFormField
+
+    Elemen input ini saya gunakan agar dapat menerima input berupa teks dari pengguna aplikasi
+
+- ElevatedButton
+
+    Elemen input ini saya gunakan untuk melakukan validasi terhadap input teks yang dimasukkan pengguna pada TextFormField dan kemudian menampilkan pesan berhasil serta keterangan apa saja yang di input oleh pengguna. 
+
 ---
 > Bagaimana penerapan *clean architecture* pada aplikasi Flutter?
 
+Penerapan *clean architecture* pada aplikasi Flutter adalah dengan memisahkan *widget* dan halaman yang kita buat sendiri ke dalam suatu *file* khusus untuk *widget* atau halaman tersebut agar setiap *widget* dan halaman yang kita buat terdapat dalam *file*nya tersendiri. *File-file* tersebut kemudian akan diletakkan ke dalam sebuah direktori seperti `widgets` untuk menampung semua *file* yang mengandung *widget* yang kita buat dan `screens` untuk menampung semua *file* yang mengandung halaman yang kita buat. 
+
 ---
 > Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+
+1. Pertama, saya membuat direktori `widgets` dan `screens` kemudian memindahkan `menu.dart` ke direktori `screens` dan `item.dart` ke direktori `widgets`. Setelah itu, saya menghapus deklarasi `MenuItem` dan `MenuCard` pada *file* `menu.dart` dan memindahkannya ke *file* baru bernama `menu_card.dart` pada direktori `widgets` dan menyesuaikan *import* di *file-file* terkait.
+
+2. Setelah pemisahan tersebut, saya membuat *file* `drawer.dart` pada direktori `widgets` yang akan diisi kode untuk berpindah halaman dari `Home` ke `Add Item`. Kode dari `drawer.dart` kurang lebih sama dengan yang ada di tutorial, hanya berbeda pada teks dan *style* nya saja.
+
+3. Setelah itu saya membuat *file* baru lagi bernama `add_item.dart` pada direktori `screens` guna menampung *code* untuk halaman *form* untuk menambahkan `item`. Isi dari *file* `add_item.dart` tersebut juga kurang lebih sama dengan yang ada di tutorial, hanya berbeda pada teks dan penamaan variabel. Saya berpikir untuk menambahkan satu lagi input yang berupa pilihan namun karena waktu yang terbatas, saya belum sempat melakukannya.
+
+4. Setelah kode `add_item.dart` selesai, saya tambahkan *routing* nya pada file `drawer.dart` dan mengubah `menu.dart` untuk menampilkan *drawer* yang telah saya buat pada `drawer.dart`. Saya juga mengubah `menu_card.dart` agar ketika nama tombol adalah `Add Item`, pengguna akan diarahkan ke halaman untuk menambahkan *item* yang saya telah buat di `add_item.dart`.

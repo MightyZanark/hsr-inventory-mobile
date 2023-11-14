@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/widgets/menu_card.dart';
+import 'package:hsr_inventory/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -16,7 +17,9 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("HSR Inventory"),
           backgroundColor: Colors.amber,
+          foregroundColor: Colors.white,
         ),
+        drawer: const AppDrawer(),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),

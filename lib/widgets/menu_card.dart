@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hsr_inventory/screens/add_item.dart';
 import 'dart:math';
 
 class MenuItem {
@@ -24,6 +25,11 @@ class MenuCard extends StatelessWidget {
               ..showSnackBar(SnackBar(
                   content:
                       Text('You have pressed the "${menu.title}" button!')));
+
+            if (menu.title == 'Add Item') {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const AddItemPage()));
+            }
           },
           child: Container(
               padding: const EdgeInsets.all(8),
