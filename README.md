@@ -1,5 +1,6 @@
 # HSR Game Inventory - Mobile
 - [Tugas 7](#tugas-7)
+- [Tugas 8](#tugas-8)
 
 
 ## Tugas 7
@@ -128,3 +129,25 @@ Perbedaan utama antara *stateless* dan *stateful widget* di Flutter adalah tenta
 4. Pada *class* `MenuCard` yang merupakan ekuivalen dari `ShopCard`, saya menambahkan atribut `color` yang merupakan sebuah warna *random* dari semua pilihan warna yang ada tersedia di *class* `Colors`.
 
 5. Saya juga membuat *file* bernama `item.dart` yang kurang lebih saya ambil dari [sini](https://github.com/MightyZanark/OprecRistek/blob/f640536662cdb751ed3d1303a5daa8b60ffe4295/lib/api_fetch.dart) dengan memodifikasi untuk kebutuhan aplikasi ini.
+
+---
+## Tugas 8
+> Jelaskan perbedaan antara `Navigator.push()` dan `Navigator.pushReplacement()`, disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
+
+*Function* `Navigator.push()` akan meletakkan halaman baru "di atas" halaman sebelumnya sehingga jika tombol *back* ditekan pada *device*, layar akan kembali ke halaman sebelumnya. Sedangkan, *function* `Navigator.pushReplacement()` akan menggantikan halaman sebelumnya dengan halaman baru sehingga tidak dapat kembali ke halaman sebelumnya jika tombol *back* pada *device* ditekan.
+
+Contoh penggunaan `Navigator.push()` yang tepat adalah ketika halaman yang ingin ditampilkan bersifat sementara seperti halaman untuk melihat detil suatu barang ketika gambar dari barang tersebut ditekan.
+
+Contoh penggunaan `Navigator.pushReplacement()` yang tepat adalah ketika halaman yang ingin ditampilkan 
+
+---
+> Jelaskan masing-masing *layout widget* pada Flutter dan konteks penggunaannya masing-masing!
+
+---
+> Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+
+---
+> Bagaimana penerapan *clean architecture* pada aplikasi Flutter?
+
+---
+> Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
