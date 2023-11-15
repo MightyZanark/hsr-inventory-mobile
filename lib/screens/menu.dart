@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/widgets/menu_card.dart';
 import 'package:hsr_inventory/widgets/drawer.dart';
+import 'package:hsr_inventory/widgets/item.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -11,6 +12,8 @@ class HomePage extends StatelessWidget {
     MenuItem("Logout", Icons.logout)
   ];
 
+  final List<Item> items = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +22,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.amber,
           foregroundColor: Colors.white,
         ),
-        drawer: const AppDrawer(),
+        drawer: AppDrawer(items),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),

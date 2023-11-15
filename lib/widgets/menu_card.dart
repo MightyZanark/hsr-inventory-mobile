@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/screens/add_item.dart';
+import 'package:hsr_inventory/screens/view_item.dart';
+import 'package:hsr_inventory/widgets/item.dart';
 import 'dart:math';
 
 class MenuItem {
@@ -11,8 +13,9 @@ class MenuItem {
 
 class MenuCard extends StatelessWidget {
   final MenuItem menu;
+  final List<Item> items = [];
 
-  const MenuCard(this.menu, {super.key});
+  MenuCard(this.menu, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,12 @@ class MenuCard extends StatelessWidget {
 
             if (menu.title == 'Add Item') {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const AddItemPage()));
+                  MaterialPageRoute(builder: (context) => AddItemPage(items)));
+            }
+
+            if (menu.title == 'See Items') {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ViewItemPage(items)));
             }
           },
           child: Container(

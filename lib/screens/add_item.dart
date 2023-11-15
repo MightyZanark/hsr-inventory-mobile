@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/widgets/drawer.dart';
+import 'package:hsr_inventory/widgets/item.dart';
 
 class AddItemPage extends StatefulWidget {
-  const AddItemPage({super.key});
+  final List<Item> items;
+  const AddItemPage(this.items, {super.key});
 
   @override
   State<AddItemPage> createState() => _AddItemPageState();
@@ -22,7 +24,7 @@ class _AddItemPageState extends State<AddItemPage> {
             title: const Center(child: Text('Add Item')),
             backgroundColor: Colors.amber,
             foregroundColor: Colors.white),
-        drawer: const AppDrawer(),
+        drawer: AppDrawer(widget.items),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -127,6 +129,7 @@ class _AddItemPageState extends State<AddItemPage> {
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
+                            widget.items.add(Item(_name, _desc, "", _amount));
                             showDialog(
                                 context: context,
                                 builder: (context) {
