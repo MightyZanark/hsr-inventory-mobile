@@ -43,16 +43,19 @@ class ItemCard extends StatelessWidget {
               children: [
                 Text(item.name,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
                 Text('Amount: ${item.amount}',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 14, color: Colors.white)),
+                    style: const TextStyle(fontSize: 14, color: Colors.white)),
                 Text(item.description,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic))
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.white))
               ],
             ))));
   }
