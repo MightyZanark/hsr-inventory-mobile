@@ -219,5 +219,29 @@ Berdasarkan *source code*nya, fungsi dari `CookieRequest` adalah untuk membantu 
 ---
 > Sebutkan seluruh *widget* yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
 
+- FutureBuilder
+
+    Merupakan *widget* yang berfungsi untuk membuat *widget* lain secara *asynchronous*, sehingga bergantung pada kapan data berhasil didapatkan dari API untuk menampilkan data.
+
+- CircularProgressIndicator
+
+    Hanya merupakan *widget* visual yang digunakan untuk mengindikasikan halaman sedang di *load*.
+
+- TextEditingController
+
+    Merupakan *widget* yang berfungsi untuk memberikan informasi kepada *event listeners* dari sebuah `TextField` ketika *text* yang berada di dalam `TextField` tersebut berubah.
+
+- SizedBox
+
+    Merupakan *widget* yang membuat sebuah kotak sesuai dengan tinggi dan lebar yang dispesifikasikan. *Widget* tersebut menurut saya biasanya hanya digunakan sebagai spasi antara *widget-widget* lain.
+
 ---
 > Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step*! (bukan hanya sekadar mengikuti tutorial).
+
+1. Pertama, saya melakukan *copy-paste* untuk `login.dart` dari hasil tutorial saya karena pada dasarnya hal yang dibutuhkan sama. Setelah itu, saya melakukan *copy-paste* sekali lagi dan membuat *file* baru bernama `register.dart` untuk mengurus pembuatan akun baru dari Flutter. Di halaman login, saya juga menambahkan tombol yang ketika ditekan akan mengarahkan pengguna ke halaman register.
+
+2. Setelah itu, saya memodifikasi *project* Django saya untuk dapat menerima *request* untuk login, logout, dan register dari Flutter, serta mengambil *item* apa saja yang dimiliki pengguna yang sedang login dan menambahkan item untuk pengguna itu. 
+
+3. Kemudian, saya memodifikasi *file* `add_item.dart` dan `view_item.dart` agar terintegrasi dengan Django. Hal ini dilakukan dengan menggunakan `CookieRequest` dan melakukan GET *request* ke *endpoint* yang sesuai.
+
+4. Setelah hal teknis selesai, saya membuat *file* `item_detail.dart` yang berfungsi untuk memperlihatkan *detail* dari sebuah *item* ketika *card* dari *item* itu ditekan dan `item_card.dart` yang berfungsi untuk menampilkan *item* di halaman `view_item.dart`.
