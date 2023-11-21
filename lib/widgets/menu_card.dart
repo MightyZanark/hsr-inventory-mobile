@@ -16,7 +16,6 @@ class MenuItem {
 
 class MenuCard extends StatelessWidget {
   final MenuItem menu;
-  final List<Item> items = [];
 
   MenuCard(this.menu, {super.key});
 
@@ -36,12 +35,12 @@ class MenuCard extends StatelessWidget {
 
             if (menu.title == 'Add Item') {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => AddItemPage(items)));
+                  MaterialPageRoute(builder: (context) => const AddItemPage()));
             }
 
             if (menu.title == 'See Items') {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ViewItemPage(items)));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ViewItemPage()));
             }
 
             if (menu.title == 'Logout') {

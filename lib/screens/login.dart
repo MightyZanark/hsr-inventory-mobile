@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                     ScaffoldMessenger.of(context)
                       ..hideCurrentSnackBar()
                       ..showSnackBar(SnackBar(
-                        content: Text('$msg Welcome, $uname'),
+                        content: Text('$msg\nWelcome, $uname'),
                       ));
                   } else {
                     showDialog(

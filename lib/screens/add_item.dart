@@ -7,10 +7,9 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 class AddItemPage extends StatefulWidget {
-  final List<Item> items;
   // change to 10.0.2.2 if on emulator
   static const String endpoint = 'http://127.0.0.1:8000/add-flutter/';
-  const AddItemPage(this.items, {super.key});
+  const AddItemPage({super.key});
 
   @override
   State<AddItemPage> createState() => _AddItemPageState();
@@ -32,7 +31,7 @@ class _AddItemPageState extends State<AddItemPage> {
             title: const Center(child: Text('Add Item')),
             backgroundColor: Colors.amber,
             foregroundColor: Colors.white),
-        drawer: AppDrawer(widget.items),
+        drawer: const AppDrawer(),
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(

@@ -33,16 +33,6 @@ class Item {
   }
 }
 
-Future<Item> fetchItem() async {
-  final response = await http.get(Uri.parse(""));
-
-  if (response.statusCode == 200) {
-    return Item.fromJSON(jsonDecode(response.body));
-  } else {
-    throw Exception("Failed to fetch item list");
-  }
-}
-
 class ItemCard extends StatelessWidget {
   final Item item;
   const ItemCard(this.item, {super.key});

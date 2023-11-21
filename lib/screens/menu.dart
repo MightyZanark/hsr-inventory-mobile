@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.amber,
           foregroundColor: Colors.white,
         ),
-        drawer: AppDrawer(items),
+        drawer: const AppDrawer(),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),

@@ -5,8 +5,7 @@ import 'package:hsr_inventory/screens/view_item.dart';
 import 'package:hsr_inventory/models/item.dart';
 
 class AppDrawer extends StatelessWidget {
-  final List<Item> items;
-  const AppDrawer(this.items, {super.key});
+  const AppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,7 @@ class AppDrawer extends StatelessWidget {
         title: const Text('Add Items'),
         onTap: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => AddItemPage(items)));
+              MaterialPageRoute(builder: (context) => const AddItemPage()));
         },
       ),
       ListTile(
@@ -50,7 +49,7 @@ class AppDrawer extends StatelessWidget {
         title: const Text('View Items'),
         onTap: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => ViewItemPage(items)));
+              MaterialPageRoute(builder: (context) => const ViewItemPage()));
         },
       )
     ]));

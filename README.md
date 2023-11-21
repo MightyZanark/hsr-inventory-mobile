@@ -195,14 +195,26 @@ Penerapan *clean architecture* pada aplikasi Flutter adalah dengan memisahkan *w
 
 > Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
 
+Bisa, tapi akan membuat mengolah data JSON lebih rumit dibanding jika kita membuat model terlebih dahulu yang akan merepresentasikan data JSON ke dalam bentuk yang lebih mudah di olah dalam *code*.
+
 ---
-> Jelaskan fungsi dari CookieRequest dan jelaskan mengapa *instance* CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+> Jelaskan fungsi dari `CookieRequest` dan jelaskan mengapa *instance* `CookieRequest` perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+Berdasarkan *source code*nya, fungsi dari `CookieRequest` adalah untuk membantu dalam membuat *HTTP Requests* ke *back-end* Django tanpa kita sendiri harus memikirkan bagaimana meng-*handle* *cookies* dan data yang dikirimkan dari Django. *Instance* `CookieRequest` perlu dibagikan ke semua komponen di aplikasi Flutter karena menyimpan *cookies* yang akan diperlukan untuk melakukan *request* lain, seperti *request* untuk meminta *list* barang yang dimiliki oleh pengguna.
 
 ---
 > Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
 
+1. Data berupa data JSON diambil dari *back-end* Django menggunakan GET Request melalui *library* `pbp_django_auth`.
+2. Data yang diterima akan di-*decode* di Flutter dan kemudian di ubah menjadi model yang sesuai.
+3. Model kemudian akan ditampilkan melalui *widget-widget* yang kita buat di Flutter.
+
 ---
 > Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+1. Input data akun pada Flutter akan dikirimkan ke *back-end* Django menggunakan POST Request melalui *library* `pbp_django_auth` dalam bentuk JSON.
+2. Data tersebut kemudian akan di proses oleh *back-end* Django dan setelah itu Django akan mengirimkan *response* yang berisi data hasil proses autentikasi.
+3. Flutter akan menerima *response* yang dikirimkan Django dan jika autentikasi berhasil, maka tampilan akan berubah menjadi `HomePage`, sedangkan jika gagal tampilan akan tetap berada pada halaman autentikasi.
 
 ---
 > Sebutkan seluruh *widget* yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
