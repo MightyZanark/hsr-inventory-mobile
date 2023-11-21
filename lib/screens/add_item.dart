@@ -1,9 +1,15 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/widgets/drawer.dart';
-import 'package:hsr_inventory/widgets/item.dart';
+import 'package:hsr_inventory/models/item.dart';
+import 'package:hsr_inventory/screens/menu.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class AddItemPage extends StatefulWidget {
   final List<Item> items;
+  // change to 10.0.2.2 if on emulator
+  static const String endpoint = 'http://127.0.0.1:8000/add-flutter/';
   const AddItemPage(this.items, {super.key});
 
   @override
@@ -19,6 +25,8 @@ class _AddItemPageState extends State<AddItemPage> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+
     return Scaffold(
         appBar: AppBar(
             title: const Center(child: Text('Add Item')),
@@ -127,36 +135,30 @@ class _AddItemPageState extends State<AddItemPage> {
                           backgroundColor:
                               MaterialStateProperty.all(Colors.amber),
                         ),
-                        onPressed: () {
+                        onPressed: () async {
                           if (_formKey.currentState!.validate()) {
-                            widget.items.add(Item(_name, _desc, "", _amount));
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    title:
-                                        const Text('Successfully added item'),
-                                    content: SingleChildScrollView(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Name: $_name'),
-                                          Text('Amount: $_amount'),
-                                          Text('Description: $_desc')
-                                        ],
-                                      ),
-                                    ),
-                                    actions: [
-                                      TextButton(
-                                        child: const Text('OK'),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      )
-                                    ],
-                                  );
-                                });
+                            final resp = await request.postJson(
+                                AddItemPage.endpoint,
+                                jsonEncode(<String, String>{
+                                  'name': _name,
+                                  'amount': _amount.toString(),
+                                  'description': _desc
+                                }));
+                            if (resp['status'] == 'success') {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'Successfully added new item!')));
+                              Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                builder: (context) => HomePage(),
+                              ));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'Something went wrong, please try again.')));
+                            }
                             _formKey.currentState!.reset();
                           }
                         },

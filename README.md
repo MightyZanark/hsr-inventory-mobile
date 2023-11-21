@@ -132,6 +132,7 @@ Perbedaan utama antara *stateless* dan *stateful widget* di Flutter adalah tenta
 
 ---
 ## Tugas 8
+
 > Jelaskan perbedaan antara `Navigator.push()` dan `Navigator.pushReplacement()`, disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
 
 *Function* `Navigator.push()` akan meletakkan halaman baru "di atas" halaman sebelumnya sehingga jika tombol *back* ditekan pada *device*, layar akan kembali ke halaman sebelumnya. Sedangkan, *function* `Navigator.pushReplacement()` akan menggantikan halaman sebelumnya dengan halaman baru sehingga tidak dapat kembali ke halaman sebelumnya jika tombol *back* pada *device* ditekan.
@@ -188,3 +189,23 @@ Penerapan *clean architecture* pada aplikasi Flutter adalah dengan memisahkan *w
 3. Setelah itu saya membuat *file* baru lagi bernama `add_item.dart` pada direktori `screens` guna menampung *code* untuk halaman *form* untuk menambahkan `item`. Isi dari *file* `add_item.dart` tersebut juga kurang lebih sama dengan yang ada di tutorial, hanya berbeda pada teks dan penamaan variabel. Saya berpikir untuk menambahkan satu lagi input yang berupa pilihan namun karena waktu yang terbatas, saya belum sempat melakukannya.
 
 4. Setelah kode `add_item.dart` selesai, saya tambahkan *routing* nya pada file `drawer.dart` dan mengubah `menu.dart` untuk menampilkan *drawer* yang telah saya buat pada `drawer.dart`. Saya juga mengubah `menu_card.dart` agar ketika nama tombol adalah `Add Item`, pengguna akan diarahkan ke halaman untuk menambahkan *item* yang saya telah buat di `add_item.dart`.
+
+---
+## Tugas 9
+
+> Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+---
+> Jelaskan fungsi dari CookieRequest dan jelaskan mengapa *instance* CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+---
+> Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+
+---
+> Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+---
+> Sebutkan seluruh *widget* yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+---
+> Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step*! (bukan hanya sekadar mengikuti tutorial).

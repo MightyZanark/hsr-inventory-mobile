@@ -1,8 +1,11 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/screens/add_item.dart';
+import 'package:hsr_inventory/screens/login.dart';
 import 'package:hsr_inventory/screens/view_item.dart';
-import 'package:hsr_inventory/widgets/item.dart';
-import 'dart:math';
+import 'package:hsr_inventory/models/item.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class MenuItem {
   final String title;
@@ -19,10 +22,12 @@ class MenuCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+
     return Material(
         color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
         child: InkWell(
-          onTap: () {
+          onTap: () async {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(SnackBar(
@@ -37,6 +42,21 @@ class MenuCard extends StatelessWidget {
             if (menu.title == 'See Items') {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => ViewItemPage(items)));
+            }
+
+            if (menu.title == 'Logout') {
+              final resp =
+                  await request.logout('http://127.0.0.1:8000/auth/logout/');
+              String msg = resp['message'];
+              if (resp['status']) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Logout successful!')));
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const LoginPage()));
+              } else {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(msg)));
+              }
             }
           },
           child: Container(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/widgets/drawer.dart';
-import 'package:hsr_inventory/widgets/item.dart';
+import 'package:hsr_inventory/models/item.dart';
 
 class ViewItemPage extends StatelessWidget {
   final List<Item> items;

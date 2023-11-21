@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/widgets/menu_card.dart';
 import 'package:hsr_inventory/widgets/drawer.dart';
-import 'package:hsr_inventory/widgets/item.dart';
+import 'package:hsr_inventory/models/item.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
