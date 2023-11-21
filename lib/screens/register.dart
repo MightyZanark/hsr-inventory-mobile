@@ -1,44 +1,44 @@
-import 'package:hsr_inventory/screens/menu.dart';
+import 'package:hsr_inventory/screens/login.dart';
 import 'package:flutter/material.dart';
-import 'package:hsr_inventory/screens/register.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const LoginApp());
+  runApp(const RegisterApp());
 }
 
-class LoginApp extends StatelessWidget {
-  const LoginApp({Key? key}) : super(key: key);
+class RegisterApp extends StatelessWidget {
+  const RegisterApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const LoginPage(),
+      home: const RegisterPage(),
     );
   }
 }
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final String url = 'https://juan-maxwell-tugas.pbp.cs.ui.ac.id/auth/login/';
-  // if run in an android emulator change url to 'http://10.0.2.2/auth/login/'
+  final String url =
+      'https://juan-maxwell-tugas.pbp.cs.ui.ac.id/auth/register/';
+  // if run in an android emulator change url to 'http://10.0.2.2/auth/register/'
 
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
     return Scaffold(
-        appBar: AppBar(title: const Text('Login')),
+        appBar: AppBar(title: const Text('Register')),
         body: Container(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -64,26 +64,25 @@ class _LoginPageState extends State<LoginPage> {
                   String username = _usernameController.text;
                   String password = _passwordController.text;
 
-                  final response = await request.login(url, {
+                  final response = await request.post(url, {
                     'username': username,
                     'password': password,
                   });
 
-                  if (request.loggedIn) {
+                  if (response['status']) {
                     String msg = response['message'];
-                    String uname = response['username'];
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const LoginPage()));
                     ScaffoldMessenger.of(context)
                       ..hideCurrentSnackBar()
                       ..showSnackBar(SnackBar(
-                        content: Text('$msg\nWelcome, $uname'),
+                        content: Text(msg),
                       ));
                   } else {
                     showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                              title: const Text('Login Failed'),
+                              title: const Text('Register Failed'),
                               content: Text(response['msg']),
                               actions: [
                                 TextButton(
@@ -96,15 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                             ));
                   }
                 },
-                child: const Text('Login'),
+                child: const Text('Register'),
               ),
-              const SizedBox(height: 12),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const RegisterPage()));
-                  },
-                  child: const Text('Register Now')),
             ],
           ),
         ));
