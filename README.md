@@ -207,7 +207,7 @@ Berdasarkan *source code*nya, fungsi dari `CookieRequest` adalah untuk membantu 
 
 1. Data berupa data JSON diambil dari *back-end* Django menggunakan GET Request melalui *library* `pbp_django_auth`.
 2. Data yang diterima akan di-*decode* di Flutter dan kemudian di ubah menjadi model yang sesuai.
-3. Model kemudian akan ditampilkan melalui *widget-widget* yang kita buat di Flutter.
+3. Model kemudian akan ditampilkan melalui *widget* `FutureBuilder` yang menunggu hingga *request asynchronous* mengembalikan data dan kemudian menampilkan data tersebut melalui *widget-widget* lain.
 
 ---
 > Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.

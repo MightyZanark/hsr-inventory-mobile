@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hsr_inventory/widgets/drawer.dart';
-import 'package:hsr_inventory/models/item.dart';
 import 'package:hsr_inventory/screens/menu.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 class AddItemPage extends StatefulWidget {
   // change to 10.0.2.2 if on emulator
-  static const String endpoint = 'http://127.0.0.1:8000/add-flutter/';
+  static const String endpoint =
+      'https://juan-maxwell-tugas.pbp.cs.ui.ac.id/add-flutter/';
   const AddItemPage({super.key});
 
   @override
@@ -143,7 +143,7 @@ class _AddItemPageState extends State<AddItemPage> {
                                   'amount': _amount.toString(),
                                   'description': _desc
                                 }));
-                            if (resp['status'] == 'success') {
+                            if (resp['status']) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       content: Text(

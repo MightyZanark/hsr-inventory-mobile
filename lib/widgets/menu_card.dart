@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hsr_inventory/screens/add_item.dart';
 import 'package:hsr_inventory/screens/login.dart';
 import 'package:hsr_inventory/screens/view_item.dart';
-import 'package:hsr_inventory/models/item.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -44,8 +43,8 @@ class MenuCard extends StatelessWidget {
             }
 
             if (menu.title == 'Logout') {
-              final resp =
-                  await request.logout('http://127.0.0.1:8000/auth/logout/');
+              final resp = await request.logout(
+                  'https://juan-maxwell-tugas.pbp.cs.ui.ac.id/auth/logout/');
               String msg = resp['message'];
               if (resp['status']) {
                 ScaffoldMessenger.of(context).showSnackBar(
